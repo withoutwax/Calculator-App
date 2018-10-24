@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var calcDisplay: UILabel!
     
     var input : String = ""
+    var numSign : Any?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,8 +22,6 @@ class ViewController: UIViewController {
 
     @IBAction func numButton(_ sender: UIButton) {
         
-//        var numInput = 0
-        
         // IF THE INPUT IS NUMBER
         if (sender.tag < 10) {
             if (input == "0") {
@@ -30,17 +29,16 @@ class ViewController: UIViewController {
             }
             input += String(sender.tag)
         } else { // IF THE INPUT IS SYMBOLS
-//            numInput = Int(input) ?? 0
-            if (sender.tag == 19) {
+            if (sender.tag == 10) { // =
+                print("=")
+            } else if (sender.tag == 13) { // +
+//                numSign = "+"
+                print("Plus +")
+            } else if (sender.tag == 17) {
+                
+            } else if (sender.tag == 19) {
                 input = "0"
             }
-            
-//            switch(sender.tag) {
-//                case 19:
-//                    input = "0"
-//            default:
-//                <#code#>
-//            }
         }
         
         
