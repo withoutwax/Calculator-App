@@ -18,6 +18,9 @@ class ViewController: UIViewController {
     
     var returnResult : Int = 0
     
+    var numInput : Bool = false
+    var resultInput : Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -33,34 +36,66 @@ class ViewController: UIViewController {
             input += String(sender.tag)
             calcDisplay.text = input
             
-        } else { // IF THE INPUT IS SYMBOLS
+            numInput = true
+            resultInput = false
             
-            if (sender.tag == 10) { // =
+        } else {
+            
+            // IF THE INPUT IS SYMBOLS
+            // ====================== INPUT -> =
+            if (sender.tag == 10) {
                 print("=")
                 if (numSign == "+") {
                     returnResult = input01 + (Int(input) ?? 0)
                 }
                 calcDisplay.text = String(returnResult)
                 
-            } else if (sender.tag == 13) { // +
-                input01 = Int(input) ?? 0
+                numInput = false
+                resultInput = true
+                
+            // ====================== INPUT -> +
+            } else if (sender.tag == 13) {
+                if (numInput == true) {
+                    input01 = Int(input) ?? 0
+                } else if (resultInput == true) {
+                    input01 = returnResult
+                }
+                
+                
+                
                 numSign = "+"
                 input = "0"
                 
                 print("Plus +")
                 calcDisplay.text = String(input01)
+                
+                numInput = false
+                resultInput = true
+            // ====================== INPUT ->
             } else if (sender.tag == 17) { // %
                 
-                
+            // ====================== INPUT -> AC/C
             } else if (sender.tag == 19) {
                 input = "0"
+                input01 = 0
+                returnResult = 0
+                
+                calcDisplay.text = String(input)
             }
         }
         
-        print("input01", input01)
-        print("input", input)
-        print("returnResult", returnResult)
+        print("input01", input01, "input", input, "returnResult", returnResult)
     }
+    
+//    func toggleInputSetting (_ numSetting: Bool, _ resSetting: Bool) {
+//        if (numSetting == false && resSetting == true) {
+//            numInput = true
+//            resultInput = false
+//        } else if (numSetting == true && resSetting == false) {
+//            numInput = false
+//            resultInput = true
+//        }
+//    }
     
     
 //    TAGS = SYMBOLS
