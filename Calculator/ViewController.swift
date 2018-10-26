@@ -59,8 +59,7 @@ class ViewController: UIViewController {
         } else {
             
             // IF THE INPUT IS SYMBOLS
-            // ====================== INPUT -> =
-            
+            // ====================== INPUT -> = EQUAL
             displayInput = ""
             
             if (sender.tag == 10) {
@@ -68,6 +67,10 @@ class ViewController: UIViewController {
                     returnResult = inputStore + input
                 } else if (numSign == "-") {
                     returnResult = inputStore - input
+                } else if (numSign == "x") {
+                    returnResult = inputStore * input
+                } else if (numSign == "/") {
+                    returnResult = inputStore / input
                 } else if (numSign == "") {
                     returnResult = input
                     input = 0
@@ -75,12 +78,9 @@ class ViewController: UIViewController {
                 numSign = "="
                 calcDisplay.text = String(returnResult.clean)
                 
-                numInput = false
-                resultInput = true
-                
-            // ====================== INPUT -> +
+            // ====================== INPUT -> + ADDITION
             } else if (sender.tag == 13) {
-                if (input > 0 && numSign != "=") {
+                if (numSign == "+") {
                     inputStore += input
                 } else if (numInput == true) {
                     inputStore = input
@@ -89,13 +89,9 @@ class ViewController: UIViewController {
                 }
                 
                 numSign = "+"
-                input = 0
-                
                 calcDisplay.text = String(inputStore.clean)
                 
-                numInput = false
-                resultInput = true
-            // ====================== INPUT -> -
+            // ====================== INPUT -> - SUBTRATION
             } else if (sender.tag == 14) {
                 
                 if (numSign == "-") {
@@ -107,12 +103,36 @@ class ViewController: UIViewController {
                 }
                 
                 numSign = "-"
-                input = 0
+                calcDisplay.text = String(inputStore.clean)
+            
+            // ====================== INPUT -> x MULTIPLICATION
+            } else if (sender.tag == 15) {
+                
+                if (numSign == "x") {
+                    inputStore *= input
+                } else if (numInput == true) {
+                    inputStore = input
+                } else if (resultInput == true) {
+                    inputStore = returnResult
+                }
+                
+                numSign = "x"
                 
                 calcDisplay.text = String(inputStore.clean)
                 
-                numInput = false
-                resultInput = true
+            } else if (sender.tag == 16) {
+                
+                if (numSign == "/") {
+                    inputStore /= input
+                } else if (numInput == true) {
+                    inputStore = input
+                } else if (resultInput == true) {
+                    inputStore = returnResult
+                }
+                
+                numSign = "/"
+                
+                calcDisplay.text = String(inputStore.clean)
                 
             } else if (sender.tag == 17) { // %
                 
@@ -124,8 +144,13 @@ class ViewController: UIViewController {
                 returnResult = 0
                 numSign = ""
                 
-                calcDisplay.text = String(input.clean)
+                calcDisplay.text = String(inputStore.clean)
             }
+            
+            numInput = false
+            resultInput = true
+            input = 0
+            
         }
         
         print("inputStore", inputStore, "input", input, "returnResult", returnResult, "numSign", numSign)
