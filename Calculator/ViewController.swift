@@ -13,7 +13,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var calcDisplay: UILabel!
     
     var input : String = ""
-    var numSign : Any?
+    var input01 : Int = 0
+    var numSign : String = ""
+    
+    var returnResult : Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,22 +31,35 @@ class ViewController: UIViewController {
                 input = ""
             }
             input += String(sender.tag)
+            calcDisplay.text = input
+            
         } else { // IF THE INPUT IS SYMBOLS
+            
             if (sender.tag == 10) { // =
                 print("=")
+                if (numSign == "+") {
+                    returnResult = input01 + (Int(input) ?? 0)
+                }
+                calcDisplay.text = String(returnResult)
+                
             } else if (sender.tag == 13) { // +
-//                numSign = "+"
+                input01 = Int(input) ?? 0
+                numSign = "+"
+                input = "0"
+                
                 print("Plus +")
-            } else if (sender.tag == 17) {
+                calcDisplay.text = String(input01)
+            } else if (sender.tag == 17) { // %
+                
                 
             } else if (sender.tag == 19) {
                 input = "0"
             }
         }
         
-        
-        print(input)
-        calcDisplay.text = input
+        print("input01", input01)
+        print("input", input)
+        print("returnResult", returnResult)
     }
     
     
