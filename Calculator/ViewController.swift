@@ -57,12 +57,20 @@ class ViewController: UIViewController {
             resultInput = false
             
         } else {
+            displayInput = ""
             
             // IF THE INPUT IS SYMBOLS
             // ====================== INPUT -> = EQUAL
-            displayInput = ""
             
             if (sender.tag == 10) {
+                var easterEgg : Bool = false
+//                =================== 🥚 EASTER EGGS! 🥚 =================
+                if (input == 1004.0) {
+                    easterEgg = true
+                    🥚();
+                }
+//                =================== 🥚 EASTER EGGS! 🥚 =================
+                
                 if (numSign == "+") {
                     returnResult = inputStore + input
                 } else if (numSign == "-") {
@@ -76,7 +84,12 @@ class ViewController: UIViewController {
                     input = 0
                 }
                 numSign = "="
-                calcDisplay.text = String(returnResult.clean)
+                
+                if (easterEgg == false) {
+                    calcDisplay.text = String(returnResult.clean)
+                }
+                
+                
                 
             // ====================== INPUT -> + ADDITION
             } else if (sender.tag == 13) {
@@ -156,15 +169,13 @@ class ViewController: UIViewController {
         print("inputStore", inputStore, "input", input, "returnResult", returnResult, "numSign", numSign)
     }
     
-//    func toggleInputSetting (_ numSetting: Bool, _ resSetting: Bool) {
-//        if (numSetting == false && resSetting == true) {
-//            numInput = true
-//            resultInput = false
-//        } else if (numSetting == true && resSetting == false) {
-//            numInput = false
-//            resultInput = true
-//        }
-//    }
+//  =================== 🥚 EASTER EGGS! 🥚 =================
+    func 🥚() {
+        print("EASTER EGG! 🥚")
+        calcDisplay.text = "invely💕"
+    }
+//  =================== 🥚 EASTER EGGS! 🥚 =================
+
     
 //    TAGS = SYMBOLS
 //    10 = '='
