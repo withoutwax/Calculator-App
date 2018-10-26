@@ -11,9 +11,10 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var calcDisplay: UILabel!
+    var displayInput : String = ""
     
-    var input : String = ""
-    var input01 : Int = 0
+    var input : Int = 0
+    var inputStore : Int = 0
     var numSign : String = ""
     
     var returnResult : Int = 0
@@ -30,11 +31,9 @@ class ViewController: UIViewController {
         
         // IF THE INPUT IS NUMBER
         if (sender.tag < 10) {
-            if (input == "0") {
-                input = ""
-            }
-            input += String(sender.tag)
-            calcDisplay.text = input
+            displayInput += String(sender.tag)
+            input = Int(displayInput) ?? 0
+            calcDisplay.text = displayInput
             
             numInput = true
             resultInput = false
@@ -43,11 +42,17 @@ class ViewController: UIViewController {
             
             // IF THE INPUT IS SYMBOLS
             // ====================== INPUT -> =
+            
+            displayInput = ""
+            
             if (sender.tag == 10) {
-                print("=")
                 if (numSign == "+") {
-                    returnResult = input01 + (Int(input) ?? 0)
+                    returnResult = inputStore + input
+                } else if (numSign == "") {
+                    returnResult = input
+                    input = 0
                 }
+                numSign = "="
                 calcDisplay.text = String(returnResult)
                 
                 numInput = false
@@ -55,19 +60,18 @@ class ViewController: UIViewController {
                 
             // ====================== INPUT -> +
             } else if (sender.tag == 13) {
-                if (numInput == true) {
-                    input01 = Int(input) ?? 0
+                if (input > 0 && numSign != "=") {
+                    inputStore += input
+                } else if (numInput == true) {
+                    inputStore = input
                 } else if (resultInput == true) {
-                    input01 = returnResult
+                    inputStore = returnResult
                 }
                 
-                
-                
                 numSign = "+"
-                input = "0"
+                input = 0
                 
-                print("Plus +")
-                calcDisplay.text = String(input01)
+                calcDisplay.text = String(inputStore)
                 
                 numInput = false
                 resultInput = true
@@ -76,15 +80,15 @@ class ViewController: UIViewController {
                 
             // ====================== INPUT -> AC/C
             } else if (sender.tag == 19) {
-                input = "0"
-                input01 = 0
+                input = 0
+                inputStore = 0
                 returnResult = 0
                 
                 calcDisplay.text = String(input)
             }
         }
         
-        print("input01", input01, "input", input, "returnResult", returnResult)
+        print("inputStore", inputStore, "input", input, "returnResult", returnResult, "numSign", numSign)
     }
     
 //    func toggleInputSetting (_ numSetting: Bool, _ resSetting: Bool) {
