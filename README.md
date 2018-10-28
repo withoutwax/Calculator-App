@@ -2,7 +2,7 @@
 
 This is a simple Calculator app for me to practice coding in swift 4 and utilizing the Apple SDKs.   
 
-![Image of Calculator App v1.0.0](./Assets/calculator_v1.0.0.jpeg | width=100)
+![Image of Calculator App v1.0.0](./Assets/calculator_v1.0.0.jpeg =100x)
 
 ### Things to do:
 -  [ ] Save function - be able to store calculated data into a phone (local storage).
