@@ -49,6 +49,7 @@
 		865841C02176C92F004C1003 /* CalculatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalculatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		865841C42176C92F004C1003 /* CalculatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorUITests.swift; sourceTree = "<group>"; };
 		865841C62176C92F004C1003 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		86F17C2821860ABD0062BBFB /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +80,7 @@
 		865841952176C92E004C1003 = {
 			isa = PBXGroup;
 			children = (
+				86F17C2821860ABD0062BBFB /* README.md */,
 				865841A02176C92E004C1003 /* Calculator */,
 				865841B82176C92F004C1003 /* CalculatorTests */,
 				865841C32176C92F004C1003 /* CalculatorUITests */,
