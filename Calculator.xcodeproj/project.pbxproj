@@ -15,6 +15,7 @@
 		865841AF2176C92F004C1003 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 865841AD2176C92F004C1003 /* LaunchScreen.storyboard */; };
 		865841BA2176C92F004C1003 /* CalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865841B92176C92F004C1003 /* CalculatorTests.swift */; };
 		865841C52176C92F004C1003 /* CalculatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865841C42176C92F004C1003 /* CalculatorUITests.swift */; };
+		86F17C2D21860E7D0062BBFB /* calculator_v1.0.0.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 86F17C2C21860E7D0062BBFB /* calculator_v1.0.0.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		865841C42176C92F004C1003 /* CalculatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorUITests.swift; sourceTree = "<group>"; };
 		865841C62176C92F004C1003 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		86F17C2821860ABD0062BBFB /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		86F17C2C21860E7D0062BBFB /* calculator_v1.0.0.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = calculator_v1.0.0.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 				865841B82176C92F004C1003 /* CalculatorTests */,
 				865841C32176C92F004C1003 /* CalculatorUITests */,
 				8658419F2176C92E004C1003 /* Products */,
+				86F17C2B21860E7D0062BBFB /* Assets */,
 			);
 			sourceTree = "<group>";
 		};
@@ -128,6 +131,14 @@
 				865841C62176C92F004C1003 /* Info.plist */,
 			);
 			path = CalculatorUITests;
+			sourceTree = "<group>";
+		};
+		86F17C2B21860E7D0062BBFB /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				86F17C2C21860E7D0062BBFB /* calculator_v1.0.0.jpeg */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,6 +247,7 @@
 			files = (
 				865841AF2176C92F004C1003 /* LaunchScreen.storyboard in Resources */,
 				865841AC2176C92F004C1003 /* Assets.xcassets in Resources */,
+				86F17C2D21860E7D0062BBFB /* calculator_v1.0.0.jpeg in Resources */,
 				865841A72176C92E004C1003 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
